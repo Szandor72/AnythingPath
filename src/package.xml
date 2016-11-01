@@ -4,7 +4,7 @@
         <members>GuidanceBox</members>
         <members>GuidanceBoxTest</members>
         <members>Ora</members>
-        <members>OraTest</members>
+        <members>OraTest</members>        
         <name>ApexClass</name>
     </types>
     <types>
@@ -32,9 +32,13 @@
         <name>CustomTab</name>
     </types>
     <types>
+	    <members>GuidanceBox__c</members>
+    	<name>CustomObject</name>    	
+    </types>
+    <types>
         <members>dragula</members>
         <members>dragulaCSS</members>
-        <members>lodash</members>
+        <members>lodash</members>            
         <members>streaming</members>
         <name>StaticResource</name>
     </types>

@@ -1,8 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+<<<<<<< HEAD
     <fields>
         <fullName>Field_Value__c</fullName>
         <deprecated>false</deprecated>
+=======
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>context-aware help for Lightning Pages</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>false</enableBulkApi>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>false</enableSharing>
+    <enableStreamingApi>false</enableStreamingApi>
+    <externalSharingModel>ReadWrite</externalSharingModel>
+    <fields>
+        <fullName>Field_Value__c</fullName>
+>>>>>>> 0f5db8226799101cacfb3207fc96598043549372
         <description>When the field is equal to this value, the box is shown</description>
         <externalId>false</externalId>
         <inlineHelpText>When the field is equal to this value, the box is shown</inlineHelpText>
@@ -15,7 +73,10 @@
     </fields>
     <fields>
         <fullName>Field__c</fullName>
+<<<<<<< HEAD
         <deprecated>false</deprecated>
+=======
+>>>>>>> 0f5db8226799101cacfb3207fc96598043549372
         <description>Which field&apos;s value is used to find this guidance?</description>
         <externalId>false</externalId>
         <inlineHelpText>Which field&apos;s value is used to find this guidance?</inlineHelpText>
@@ -28,7 +89,10 @@
     </fields>
     <fields>
         <fullName>Guidance__c</fullName>
+<<<<<<< HEAD
         <deprecated>false</deprecated>
+=======
+>>>>>>> 0f5db8226799101cacfb3207fc96598043549372
         <description>the guidance that shows up on the record</description>
         <externalId>false</externalId>
         <inlineHelpText>the guidance that shows up on the record</inlineHelpText>
@@ -40,7 +104,10 @@
     </fields>
     <fields>
         <fullName>KnowledgeId__c</fullName>
+<<<<<<< HEAD
         <deprecated>false</deprecated>
+=======
+>>>>>>> 0f5db8226799101cacfb3207fc96598043549372
         <externalId>false</externalId>
         <inlineHelpText>the ID of the knowledge article.  If you supply this, the box will show the article instead of anything in the guidance box</inlineHelpText>
         <label>KnowledgeId</label>
@@ -52,7 +119,10 @@
     </fields>
     <fields>
         <fullName>Object__c</fullName>
+<<<<<<< HEAD
         <deprecated>false</deprecated>
+=======
+>>>>>>> 0f5db8226799101cacfb3207fc96598043549372
         <description>API name of the object that this should display guidance for</description>
         <externalId>false</externalId>
         <inlineHelpText>API name of the object that this should display guidance for</inlineHelpText>
@@ -65,7 +135,10 @@
     </fields>
     <fields>
         <fullName>RecordType__c</fullName>
+<<<<<<< HEAD
         <deprecated>false</deprecated>
+=======
+>>>>>>> 0f5db8226799101cacfb3207fc96598043549372
         <description>If you specify this field, the guidance will only show up if the recordtype matches</description>
         <externalId>false</externalId>
         <inlineHelpText>If you specify this field, the guidance will only show up if the recordtype matches</inlineHelpText>
@@ -76,4 +149,21 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+<<<<<<< HEAD
+=======
+    <label>GuidanceBox</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
+    <nameField>
+        <displayFormat>GB-{0}</displayFormat>
+        <label>GuidanceBox Name</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>GuidanceBoxes</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+>>>>>>> 0f5db8226799101cacfb3207fc96598043549372
 </CustomObject>
