@@ -1,0 +1,5 @@
+<design:component>
+    <design:attribute name="field" label="API name for field that will determine the guidance" description="if, for example, you're doing a case, you can pick Status and those picklist values are used to select guidance" />
+    <design:attribute name="useRecordTypes" label="Use Record Types?" description="Check the box if you want your guidance to be record-type-specific" />
+    <design:attribute name="title" label="Guidance Title" description="header for the guidance"/>
+</design:component>

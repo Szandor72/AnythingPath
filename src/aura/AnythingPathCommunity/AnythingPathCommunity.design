@@ -1,0 +1,11 @@
+<design:component>
+    <design:attribute name="pathField" label="API name for picklist that will become the path" description="if, for example, you're doing a case, you can pick Status and those picklist options become the steps in the path" />
+    <design:attribute name="clickToChange" label="click to change" description="if the user clicks a step, the component will attempt to change the status to that.  Make it false if you've got a lot of validation rules or process that needs to be followed" default="true" />
+    
+    <!--two parameters specific for community builder-->
+    <design:attribute name="recordId" label="recordId" default="{!recordId}" />
+    <design:attribute name="sObjectName" label="API name for the object (Case, Something__c)"  />
+
+    
+    
+</design:component>

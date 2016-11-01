@@ -1,0 +1,18 @@
+.THIS .slds-tabs--path__item.slds-is-incomplete {
+	padding:7px;
+}
+
+.THIS .slds-box {
+	padding:0rem;
+	border-radius:0rem;
+}
+
+.THIS .slds-list--vertical.slds-has-cards--space.has-selections.dragulaBox {
+	min-height:1000px;
+	min-width:160px;
+	padding:0.5rem;
+}
+
+.THIS .slds-has-cards--space>.slds-list__item {
+	margin-bottom: 5px;
+}

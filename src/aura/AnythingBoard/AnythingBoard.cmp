@@ -1,0 +1,66 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" controller="Ora" access="global">
+
+	
+	<ltng:require scripts="{!join(',', $Resource.lodash, $Resource.dragula)}" styles="{!$Resource.dragulaCSS}" afterScriptsLoaded="{!c.doInit}"/>
+
+	<!--internal attributes-->
+	<aura:attribute name="stepWidthOverride" type="integer" required="false" access="global"/>
+	<aura:attribute name="soql" type="string" access="global"/>
+	<aura:attribute name="width" type="string" default="100%" access="global"/>
+	<aura:attribute name="options" type="object" />
+	<aura:attribute name="displayFieldsArray" type="object[]" />
+	<aura:attribute name="recordId" type="string"/>
+
+	<!--design attributes, for the app/community builders-->
+	<aura:attribute name="displayFields" type="string" default="CaseNumber, Subject, Origin" access="global"/>
+	<aura:attribute name="excludePicklistValuesFromTiles" type="string" default="" access="global"/>
+	<aura:attribute name="excludePicklistValuesFromBoard" type="string" access="global"/>
+
+	<aura:attribute name="sObjectName" type="string" default="Case" access="global"/>
+	<aura:attribute name="pathField" type="string" required="true" default="Status" access="global"/>
+	<aura:attribute name="dragToChange" type="boolean" required="true" default="true" access="global"/>
+
+	<!--error handling-->
+    <aura:registerEvent name="handleCallbackError" type="c:handleCallbackError"/>
+    <c:LightningErrorHandler errorHandlerName="anythingBoard"/>
+    
+	<div class="slds-grid" style="{!'width: ' + v.width}">
+		<aura:iteration items="{!v.options}" var="step">
+			<div class="slds-col slds-box" >
+				<span class="slds-hide"/>
+				<div class="slds-section-title--divider slds-grid slds-grid--align-spread">
+					<h3 class="slds-truncate slds-col">{!step.name}</h3>
+					<h3 class="slds-col">{!step.records.length || 0}</h3>
+				</div>
+				
+				<ul class="slds-list--vertical slds-has-cards--space has-selections dragulaBox" id="{!step.value}">
+					
+					<!-- for each record within that step -->
+						<aura:iteration items="{!step.records}" var="record">
+							<span class="slds-hide"/>
+							<li class="slds-list__item" id="{!record.Id}" >
+								<div class="slds-tile slds-tile--board">
+									<p class="slds-tile__title slds-truncate">
+										<a id="{!record.Id}" onclick="{!c.navToRecord}">{!record.displayFields[0]}</a>
+									</p>
+									<div class="slds-tile__detail">
+										<p class="slds-text-heading--small">{!record.displayFields[1]}</p>
+										<span>
+											<aura:iteration items="{!record.displayFields}" var="fieldToShow" start="2">
+												<p class="slds-truncate">{!fieldToShow}</p>
+											</aura:iteration>				
+										</span>					
+									</div>
+								</div>
+							</li>
+							<span class="slds-hide"/>
+						</aura:iteration>
+					
+
+				</ul>
+
+			</div>
+
+		</aura:iteration>	    
+	</div>
+</aura:component>

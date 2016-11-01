@@ -1,0 +1,10 @@
+<design:component>
+    <design:attribute name="sObjectName" label="Object" description="API name of the object to show on the board (ex: Case or Custom_Object__c)"/>
+    <design:attribute name="width" label="width" description="override the style for the board's width if your stuff is too cramped" />
+
+    <design:attribute name="pathField" label="Field to make columns from" description="API names for the field you want to use for columns (ex: Status or Custom_Field__c)"/>
+    <design:attribute name="displayFields" label="Fields to Show on Cards" description="Comma separate list of API names for the fields you want to show"/>
+    <design:attribute name="excludePicklistValuesFromTiles" label="don't show records with these values" description="For that picklist you selected, a comma separated list of anything you don't want to show cards for (even though the column will display)"/>
+    <design:attribute name="excludePicklistValuesFromBoard" label="don't make columns for these values" description="For that picklist you selected, a comma separated list of anything you don't want to show a column for"/>
+    
+</design:component>

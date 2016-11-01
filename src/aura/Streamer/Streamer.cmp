@@ -1,0 +1,15 @@
+<aura:component controller="Ora" access="global">
+    
+    <ltng:require scripts="{!join(',', 
+    	$Resource.streaming + '/js/cometd.js',
+    	$Resource.streaming + '/js/jquery-1.5.1.js',
+    	$Resource.streaming + '/js/json2.js',
+    	$Resource.streaming + '/js/jquery.cometd.js')}" 
+
+    	afterScriptsLoaded="{!c.doInit}" />
+
+    <aura:registerEvent name="streamerEvent" type="c:StreamerEvent"/>
+    
+    <aura:attribute name="topic" type="string" required="true" access="global"/>
+    
+</aura:component>

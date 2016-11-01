@@ -1,0 +1,48 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId,force:hasSObjectName" controller="Ora" access="global">
+        
+    <!--internal attributes-->
+    <aura:attribute name="recordId" type="Id"/>
+    <aura:attribute name="sObjectName" type="string"/>
+    <aura:attribute name="picklistDone" type="boolean"/>
+    <aura:attribute name="valueDone" type="boolean"/>
+    <aura:attribute name="pathObjects" type="object[]"/>
+    <aura:attribute name="options" type="object"/>
+    <aura:attribute name="currentValue" type="string"/>
+    <aura:attribute name="badField" type="boolean" default="false"/>
+    
+    <!--design attributes, for the app/community builders-->
+    <aura:attribute name="pathField" type="string" required="true" default="Status" access="global"/>
+    <aura:attribute name="clickToChange" type="boolean" required="true" default="false" access="global"/>
+    <aura:attribute name="listenForChange" type="boolean" required="true" default="false" access="global"/>
+    
+    <!--event handling-->
+    <aura:handler event="c:StreamerEvent" action="{!c.listener}"/>
+
+    <!--error handling-->
+    <aura:registerEvent name="handleCallbackError" type="c:handleCallbackError"/>
+    <c:LightningErrorHandler errorHandlerName="anythingPath"/>
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <aura:if isTrue="{!!v.badField}">
+        <div class="slds-tabs--path slds-p-around--small" role="application tablist">
+            <ul class="slds-tabs--path__nav" role="presentation">
+                <aura:iteration items="{!v.pathObjects}" var="step">
+                    <li class="{!'slds-tabs--path__item slds-' + step.statusClass}" role="presentation">
+                        <a class="slds-tabs--path__link" aria-selected="{!step.ariaSelected}" tabindex="{!step.tabIndex}" role="tab" aria-live="assertive"  title="{!step.value}" onclick="{!c.handleClick}">
+                            <lightning:icon iconName="utility:check" size="x-small" alternativeText="Stage Complete" class="slds-tabs--path__stage"/>
+                            <span class="slds-tabs--path__title" title="{!step.value}">{!step.label}</span>
+                        </a>
+                    </li>
+                </aura:iteration>            
+            </ul>        
+        </div>
+    </aura:if>
+    <aura:if isTrue="{!v.badField}">
+        <div class="slds-box slds-theme--error">
+            <div class="slds-text-heading--large">AnythingPath: The field you've selected doesn't exist</div>
+            <h3 class="slds-section__title">Check to be sure you entered the right field's API Name in App Builder, including __c if custom</h3>
+        </div>
+    </aura:if>
+    {!v.body}
+</aura:component>

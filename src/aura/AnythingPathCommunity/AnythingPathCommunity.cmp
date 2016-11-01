@@ -1,0 +1,14 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+    
+    <!--internal attributes-->
+    <aura:attribute name="recordId" type="string" access="global"/>
+    <aura:attribute name="sObjectName" type="string" access="global"/>
+
+    <!--design attributes, for the app/community builders-->
+    <aura:attribute name="pathField" type="string" required="true" default="Status" access="global"/>
+    <aura:attribute name="clickToChange" type="boolean" required="true" default="false" access="global"/>
+
+    <c:AnythingPath recordId="{!v.recordId}" sObjectName="{!v.sObjectName}" pathField="{!v.pathField}" clickToChange="{!v.clickToChange}" />
+
+
+</aura:component>

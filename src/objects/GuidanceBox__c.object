@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <fullName>Field_Value__c</fullName>
+        <deprecated>false</deprecated>
+        <description>When the field is equal to this value, the box is shown</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When the field is equal to this value, the box is shown</inlineHelpText>
+        <label>Field Value</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Field__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Which field&apos;s value is used to find this guidance?</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Which field&apos;s value is used to find this guidance?</inlineHelpText>
+        <label>Field</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Guidance__c</fullName>
+        <deprecated>false</deprecated>
+        <description>the guidance that shows up on the record</description>
+        <externalId>false</externalId>
+        <inlineHelpText>the guidance that shows up on the record</inlineHelpText>
+        <label>Guidance</label>
+        <length>131072</length>
+        <trackTrending>false</trackTrending>
+        <type>Html</type>
+        <visibleLines>25</visibleLines>
+    </fields>
+    <fields>
+        <fullName>KnowledgeId__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <inlineHelpText>the ID of the knowledge article.  If you supply this, the box will show the article instead of anything in the guidance box</inlineHelpText>
+        <label>KnowledgeId</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Object__c</fullName>
+        <deprecated>false</deprecated>
+        <description>API name of the object that this should display guidance for</description>
+        <externalId>false</externalId>
+        <inlineHelpText>API name of the object that this should display guidance for</inlineHelpText>
+        <label>Object</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RecordType__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If you specify this field, the guidance will only show up if the recordtype matches</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If you specify this field, the guidance will only show up if the recordtype matches</inlineHelpText>
+        <label>RecordType</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+</CustomObject>
