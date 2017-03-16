@@ -1,6 +1,6 @@
 ({
 	toastThis : function(message, title) {
-		var toastEvent = $A.get("e.force:showToast");
+		let toastEvent = $A.get("e.force:showToast");
 		toastEvent.setParams({
 			"title": title || "Error:",
 			"message": message,
