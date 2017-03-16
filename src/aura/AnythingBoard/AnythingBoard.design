@@ -15,6 +15,6 @@
     <design:attribute name="excludePicklistValuesFromBoard" label="don't make columns for these values" description="For that picklist you selected, a comma separated list of anything you don't want to show a column for"/>
 
 
-
+		<design:attribute name="showLabels" label="Show field labels"/>
 
 </design:component>

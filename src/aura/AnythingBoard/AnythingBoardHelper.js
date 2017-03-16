@@ -1,6 +1,6 @@
 ({
 	buildSoql : function(component) {
-		var helper = this;
+		let helper = this;
 		let field = component.get("v.pathField");
 
 		let displayFields = component.get("v.displayFields");
@@ -12,7 +12,6 @@
 		//safe to remove all space because it's field API names
 		let displayFieldsArray = displayFields.replace(/\s/g, '').split(",");
 		let queryFields = _.join(_.union(displayFieldsArray, [field], ["Id"]), ", ");
-
 
 		let soql = "select " + queryFields + " from " + component.get("v.sObjectName");
 
@@ -30,7 +29,6 @@
 			let excludeString = _.union(excludeString1, excludeString2);
 
 			excludeString = "'" + excludeString.join("', '") + "'";
-			//console.log(excludeString);
 
 			soql = soql + " where " + field + " NOT IN (" + excludeString + ")";
 			//relationshiop queries
@@ -39,20 +37,39 @@
 			}
 		}
 
-		//console.log(soql);
+		console.log(soql);
 
 		component.set("v.soql", soql);
 
 	},
 
 	populated : function(input) {
-		if (input !== null && input !== '') {
+		if (input !== null && input !== '' && typeof input != 'undefined'){
 			return true;
 		} else {return false;}
 	},
 
+	buildEmptyTree2: function(component, rawOptions) {
+		let output = [];
+		let helper = this;
+		let excludeArray = helper.CSL2Array(component.get("v.excludePicklistValuesFromBoard"));
 
-	buildEmptyTree: function(component, rawOptions) {
+		_.forEach(rawOptions, function(option){
+				//console.log(value);
+				if (!_.includes(excludeArray, option.label)){
+					output.push({
+						"name" : option.label,
+      			"value" : option.value,
+      			"records" : []
+					});
+				} else {
+					//console.log("not found " + value);
+				}
+			});
+			component.set("v.options", output);
+	},
+
+	/*buildEmptyTree: function(component, rawOptions) {
 			let output = [];
 			let helper = this;
 			let excludeArray = helper.CSL2Array(component.get("v.excludePicklistValuesFromBoard"));
@@ -71,46 +88,7 @@
 				}
 			})
 			component.set("v.options", output);
-			/*
-			console.log("building tree");
-			let localStuff = rawOptions;
-
-			console.log(localStuff);
-
-			//exclusion process
-
-			let excludeString = component.get("v.excludePicklistValuesFromBoard");
-			console.log(excludeString);
-
-			if (excludeString != null && excludeString != ''){
-				excludeString = this.CSL2Array(excludeString);
-				console.log(excludeString);
-
-				_.forEach(excludeString, function(value, key){
-					console.log("removing " + value);
-					delete localStuff[value];
-					//_.unset(localStuff, value);
-					//let removed = _.pull(localStuff, value);
-					//console.log(removed);
-				})
-				console.log(localStuff);
-			}
-
-
-            let output = [];
-            for (let key in localStuff) { //(value, label)
-            	if (localStuff.hasOwnProperty(key)){
-            		output.push({
-            			"name" : localStuff[key],
-            			"value" : key,
-            			"records" : []
-            		});
-            	}
-            }
-
-            component.set("v.options", output);*/
-
-	},
+	},*/
 
 	buildDisplayFieldsArray: function (component){
 		//console.log("buildind DFA");

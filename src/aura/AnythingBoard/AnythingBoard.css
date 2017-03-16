@@ -1,3 +1,7 @@
+.THIS {
+	overflow: scroll;
+}
+
 .THIS .slds-tabs--path__item.slds-is-incomplete {
 	padding:7px;
 }
