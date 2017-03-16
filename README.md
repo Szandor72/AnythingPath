@@ -9,9 +9,9 @@ Tongue-in-cheek [demo video](https://www.youtube.com/watch?v=Zoqll5THApU) that w
        src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png">
 </a>
 
-##AnythingPath
+## AnythingPath
 
-###Does
+### Does
 
 * show the stages, in the order of the picklist
 * work on standard or custom objects
@@ -23,7 +23,7 @@ Tongue-in-cheek [demo video](https://www.youtube.com/watch?v=Zoqll5THApU) that w
 * update the path if you do "edit" on the record detail (except in communities, where there's no streaming API)
 * verify that your field in app builder is actually a field, and shows an angry red error message if the field isn't found :)
 
-###Doesn't
+### Doesn't
 
 * verify that it's actually a picklist field
 * deal with record types where only some picklist values are there
@@ -32,7 +32,7 @@ Tongue-in-cheek [demo video](https://www.youtube.com/watch?v=Zoqll5THApU) that w
 
 ===
 
-##GuidanceBox
+## GuidanceBox
 
 GuidanceBox provides the "Guidance for Success" to immitate Sales Path.  Behind it is a custom object with a rich text field for guidance, along with text fields for
 
@@ -45,17 +45,20 @@ There's a simple lightning component to drag onto your record detail page.  If n
 
 ===
 
-##AnythingBoard
+## AnythingBoard
 
-###Does
+### Does
 
-* show the stags, in the order of the picklist
+* show the stages, in the order of the picklist
 * work on standard or custom objects
 * show as many fields as you like
+* support "related list" like features--you can limit the records returned to children of the current record displayed
+* have a checkbox that lets you add the field labels to the cards
+* support lookup/related fields on the cards
 
-###Doesn't
+### Doesn't
 
-* do any rollup/count/sum of any fields
+* do any rollup/count/sum of any fields, just counts the objects
 * verify that it's actually a picklist field
 * verify that it's actually a field at all :)
 * deal with record types where only some picklist values are there
