@@ -1,6 +1,6 @@
 <aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes" controller="Ora" access="global">
 
-	
+
 	<ltng:require scripts="{!join(',', $Resource.lodash, $Resource.dragula)}" styles="{!$Resource.dragulaCSS}" afterScriptsLoaded="{!c.doInit}"/>
 
 	<!--internal attributes-->
@@ -17,13 +17,14 @@
 	<aura:attribute name="excludePicklistValuesFromBoard" type="string" access="global"/>
 
 	<aura:attribute name="sObjectName" type="string" default="Case" access="global"/>
+	<aura:attribute name="relationshipField" type="string" access="global"/>
 	<aura:attribute name="pathField" type="string" required="true" default="Status" access="global"/>
 	<aura:attribute name="dragToChange" type="boolean" required="true" default="true" access="global"/>
 
 	<!--error handling-->
     <aura:registerEvent name="handleCallbackError" type="c:handleCallbackError"/>
     <c:LightningErrorHandler errorHandlerName="anythingBoard"/>
-    
+
 	<div class="slds-grid" style="{!'width: ' + v.width}">
 		<aura:iteration items="{!v.options}" var="step">
 			<div class="slds-col slds-box" >
@@ -32,9 +33,9 @@
 					<h3 class="slds-truncate slds-col">{!step.name}</h3>
 					<h3 class="slds-col">{!step.records.length || 0}</h3>
 				</div>
-				
+
 				<ul class="slds-list--vertical slds-has-cards--space has-selections dragulaBox" id="{!step.value}">
-					
+
 					<!-- for each record within that step -->
 						<aura:iteration items="{!step.records}" var="record">
 							<span class="slds-hide"/>
@@ -48,19 +49,19 @@
 										<span>
 											<aura:iteration items="{!record.displayFields}" var="fieldToShow" start="2">
 												<p class="slds-truncate">{!fieldToShow}</p>
-											</aura:iteration>				
-										</span>					
+											</aura:iteration>
+										</span>
 									</div>
 								</div>
 							</li>
 							<span class="slds-hide"/>
 						</aura:iteration>
-					
+
 
 				</ul>
 
 			</div>
 
-		</aura:iteration>	    
+		</aura:iteration>
 	</div>
 </aura:component>
