@@ -17,12 +17,12 @@
 
 		//deal with the records that came back, organize by the pathField
 		let records = JSON.parse(a.getReturnValue());
-		let DFA = component.get("v.displayFieldsArray")
+		let DFA = component.get("v.displayFieldsArray");
 
 		//set the display fields on the records
 		_.forEach(records, function(value, key){
 			records[key].displayFields = [];
-			_.forEach(DFA, function(DFAvalue, DFAkey){
+			_.forEach(DFA, function(DFAvalue){
 				if (DFAvalue.indexOf(".")>0){
 					let splitDFA = DFAvalue.split(".");
 					//handling relationship queries
@@ -31,7 +31,7 @@
 					//simple fields
 					records[key].displayFields.push(records[key][DFAvalue]);
 				}
-			})
+			});
 		});
 
 

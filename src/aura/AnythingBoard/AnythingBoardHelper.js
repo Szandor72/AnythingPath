@@ -1,26 +1,28 @@
 ({
 	buildSoql : function(component) {
+		var helper = this;
 		let field = component.get("v.pathField");
 
 		let displayFields = component.get("v.displayFields");
 		let exclude1 = component.get("v.excludePicklistValuesFromTiles");
 		let exclude2 = component.get("v.excludePicklistValuesFromBoard");
 		let relationship = component.get("v.relationshipField");
+		let recordId = component.get("v.recordId");
 
 		//safe to remove all space because it's field API names
-		let displayFieldsArray = displayFields.replace(/\s/g, '').split(",")
+		let displayFieldsArray = displayFields.replace(/\s/g, '').split(",");
 		let queryFields = _.join(_.union(displayFieldsArray, [field], ["Id"]), ", ");
 
 
 		let soql = "select " + queryFields + " from " + component.get("v.sObjectName");
 
 		//checking for any exclusion
-		if ((exclude1 != null && exclude1 != '') || (exclude2 != null && exclude2 != '')){
+		if (helper.populated(exclude1) || helper.populated(exclude2)){
 			let excludeString1, excludeString2 = [];
-			if (exclude1 != null && exclude1 != ''){
+			if (helper.populated(exclude1)){
 				excludeString1 = this.CSL2Array(exclude1);
 			}
-			if (exclude2 != null && exclude2 != ''){
+			if (helper.populated(exclude2)){
 				excludeString2 = this.CSL2Array(exclude2);
 			}
 
@@ -30,7 +32,11 @@
 			excludeString = "'" + excludeString.join("', '") + "'";
 			//console.log(excludeString);
 
-			soql = soql + " where " + field + " NOT IN (" + excludeString + ")"
+			soql = soql + " where " + field + " NOT IN (" + excludeString + ")";
+			//relationshiop queries
+			if (helper.populated(relationship) && helper.populated(recordId)){
+				soql = soql + " and " + relationship + " ='" + recordId +"'" ;
+			}
 		}
 
 		//console.log(soql);
@@ -38,6 +44,13 @@
 		component.set("v.soql", soql);
 
 	},
+
+	populated : function(input) {
+		if (input !== null && input !== '') {
+			return true;
+		} else {return false;}
+	},
+
 
 	buildEmptyTree: function(component, rawOptions) {
 			let output = [];
@@ -52,12 +65,12 @@
 						"name" : value,
             			"value" : key,
             			"records" : []
-					})
+					});
 				} else {
 					//console.log("not found " + value);
 				}
 			})
-			component.set("v.options", output)
+			component.set("v.options", output);
 			/*
 			console.log("building tree");
 			let localStuff = rawOptions;
@@ -230,7 +243,7 @@
 
 
 					if (component.isValid()){
-						$A.enqueueAction(updateCall)
+						$A.enqueueAction(updateCall);
 					}
 				}));
 	}
