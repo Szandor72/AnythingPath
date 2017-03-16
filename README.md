@@ -2,6 +2,13 @@
 
 Now includes AnythingBoard (kanban-like drag and drop for custom object status).
 
+**Note: most of this functionality is now standard for most Salesforce objects, including custom**.  The primary remaining use cases are
+
+* Lighting-in-VF (for people who are still on classic, but like path/kanban, especially in the service console)
+* the new related record functionality on Kanban...for example, show an opportunity or case kanban on an Account detail page
+
+
+
 Tongue-in-cheek [demo video](https://www.youtube.com/watch?v=Zoqll5THApU) that was done for internal Salesforce humor.
 
 <a href="https://githubsfdeploy.herokuapp.com?owner=mshanemc&repo=AnythingPath">
