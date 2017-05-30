@@ -62,6 +62,7 @@ There's a simple lightning component to drag onto your record detail page.  If n
 * support "related list" like features--you can limit the records returned to children of the current record displayed
 * have a checkbox that lets you add the field labels to the cards
 * support lookup/related fields on the cards
+* report errors via a on-screen toast
 
 ### Doesn't
 
@@ -69,5 +70,4 @@ There's a simple lightning component to drag onto your record detail page.  If n
 * verify that it's actually a picklist field
 * verify that it's actually a field at all :)
 * deal with record types where only some picklist values are there
-* have any error handling (if you change to a value that's throwing an exception due to triggers or validation rules, you see NOTHING!)
 * come with any guarantees from Salesforce or support from me.  Treat this as code you found laying beside the road.
