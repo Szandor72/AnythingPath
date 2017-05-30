@@ -7,7 +7,9 @@
 		let exclude1 = component.get("v.excludePicklistValuesFromTiles");
 		let exclude2 = component.get("v.excludePicklistValuesFromBoard");
 		let relationship = component.get("v.relationshipField");
+		console.log('relationship field: '+ relationship);
 		let recordId = component.get("v.recordId");
+		console.log('recordId: '+ recordId);
 
 		//safe to remove all space because it's field API names
 		let displayFieldsArray = displayFields.replace(/\s/g, '').split(",");
@@ -35,6 +37,10 @@
 			if (helper.populated(relationship) && helper.populated(recordId)){
 				soql = soql + " and " + relationship + " ='" + recordId +"'" ;
 			}
+		} else {
+			if (helper.populated(relationship) && helper.populated(recordId)){
+				soql = soql + " where " + relationship + " ='" + recordId +"'" ;
+			}
 		}
 
 		console.log(soql);
@@ -44,9 +50,10 @@
 	},
 
 	populated : function(input) {
-		if (input !== null && input !== '' && typeof input != 'undefined'){
-			return true;
-		} else {return false;}
+		console.log('input to populated is '+ input);
+		if (input !== null && input !== '' && typeof input !== 'undefined'){
+			console.log(true); return true;
+		} else {console.log(false); return false;}
 	},
 
 	buildEmptyTree2: function(component, rawOptions) {
