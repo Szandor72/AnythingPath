@@ -1,5 +1,8 @@
 <aura:component controller="Ora" access="global">
     
+    <!-- <ltng:require scripts="/resource/streaming/js/cometd.js,/resource/streaming/js/jquery-1.5.1.js,/resource/streaming/js/json2.js,/resource/streaming/js/jquery.cometd.js"
+                  afterScriptsLoaded="{!c.doInit}" /> -->
+    
     <ltng:require scripts="{!join(',', 
     	$Resource.streaming + '/js/cometd.js',
     	$Resource.streaming + '/js/jquery-1.5.1.js',
@@ -9,6 +12,7 @@
     	afterScriptsLoaded="{!c.doInit}" />
 
     <aura:registerEvent name="streamerEvent" type="c:StreamerEvent"/>
+
     
     <aura:attribute name="topic" type="string" required="true" access="global"/>
     

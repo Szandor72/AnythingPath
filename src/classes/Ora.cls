@@ -53,6 +53,7 @@ global class Ora {
             field.put('userCanEdit', descField.isUpdateable());
             field.put('help', descField.getInlineHelpText());
             field.put('default', descField.getDefaultValue());
+            field.put('isHTML', descField.isHtmlFormatted());
             
             //if a field is a picklist, I want the values
             if (field.get('type')=='picklist'){
@@ -112,7 +113,13 @@ global class Ora {
                 system.debug(Date.valueOf(svalue));
                 
             } else if ( valueType == Schema.DisplayType.DateTime) {
-                obj.put(Field, DateTime.valueOf(svalue));
+                //some formatting hacks from what the LC ui:inputDateTime is providing
+                //component provides zulu time ex: 2016-11-26T23:30:00.000Z
+                //converting to apex format 2016-11-26 23:30:00
+                svalue = svalue.replace('T', ' ');
+                svalue = svalue.replace('.000Z', '');
+                obj.put(Field, DateTime.valueOfGMT(svalue));
+
             } else if (valueType == Schema.DisplayType.Percent || valueType == Schema.DisplayType.Currency) {               
                 obj.put(Field, svalue == '' ? null : Decimal.valueOf(svalue));
             } else if (valueType == Schema.DisplayType.Double) {

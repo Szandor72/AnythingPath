@@ -1,35 +1,10 @@
 ({
 	doInit : function(component, event, helper) {
-		let record = component.get("v.record");
-		//console.log(record);
-		console.log("doing SFDRO init for :" + record.Id);
-
 		let fieldDescribe = component.get("v.fieldDescribe");
-
-		if (!fieldDescribe || !fieldDescribe.describe){
-			console.log("the describe information was invalid");
-			if (!fieldDescribe) console.log("because fieldDescribe was falsey");
-			if (!fieldDescribe.describe) console.log("because fieldDescribe.describe was falsey");
-
-			console.log(fieldDescribe);
-
-			//console.log(fieldDescribe);
-			$A.createComponent(
-				"ui:outputText",
-				{"value" : "Invalid Field"},
-				function (created){
-					helper.addComp(component, created);
-				}
-			);
-			return;
-		}
-		console.log(fieldDescribe);
-
 		//if you don't have read access, we're done here.
-		if ( fieldDescribe.describe && !fieldDescribe.describe.userCanRead){ return;}
+		if ( !fieldDescribe.describe.userCanRead){ return;}
 
-
-
+		let record = component.get("v.record");
 		let output;
 		let parts = fieldDescribe.original.split(".");
 		let id;

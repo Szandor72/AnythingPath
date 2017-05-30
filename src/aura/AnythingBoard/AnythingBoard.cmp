@@ -24,8 +24,8 @@
 	<aura:attribute name="dragToChange" type="boolean" required="true" default="true" access="global"/>
 
 	<!--error handling-->
-    <aura:registerEvent name="handleCallbackError" type="c:handleCallbackError"/>
-    <c:LightningErrorHandler errorHandlerName="anythingBoard"/>
+  <aura:registerEvent name="handleCallbackError" type="c:handleCallbackError"/>
+  <c:LightningErrorHandler errorHandlerName="anythingBoard"/>
 
 	<div class="slds-grid" style="{!'width: ' + v.width}">
 		<aura:iteration items="{!v.options}" var="step">
