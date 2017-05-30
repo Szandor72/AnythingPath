@@ -8,9 +8,9 @@
 
 		let errors = event.getParam("errors");
 
-		if (component.get("v.logError")){
-			console.log(errors);
-		}
+		// if (component.get("v.logError")){
+		// 	console.log(errors);
+		// }
 		if (errors) {
 			let showTopLevelError = true;
 			errors.forEach( function (error){
