@@ -1,0 +1,40 @@
+<aura:component implements="flexipage:availableForAllPageTypes, force:hasRecordId,force:hasSObjectName" controller="Ora" access="global" extends="promiseErrorHandler">
+
+	<!--design attributes, for the app/community builders-->
+  <aura:attribute name="pathField" type="string" required="true" default="Status" access="global"/>
+  <aura:attribute name="clickToChange" type="boolean" required="true" default="false" access="global"/>
+
+  <!--accessible only to the community wrapper-->
+  <aura:attribute name="recordId" type="Id"/>
+  <aura:attribute name="sObjectName" type="string" />
+
+  <!--internal only-->
+	<aura:attribute name="formattedFields" type="string[]"/>
+	<aura:attribute name="fields" type="object" />
+	<aura:attribute name="fieldsE" type="object" />
+	<aura:attribute name="pathObjects" type="object[]" />
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+
+	<aura:if isTrue="{!v.formattedFields.length==1}">
+		<force:recordData aura:id="frd" recordId="{!v.recordId}" fields="{!v.formattedFields}" mode="VIEW" targetFields="{!v.fields}" recordUpdated="{!c.frdgo}"/>
+		<force:recordData aura:id="frde" recordId="{!v.recordId}" fields="{!v.formattedFields}" mode="EDIT" targetFields="{!v.fieldsE}"/>
+	</aura:if>
+
+
+	<div class="slds-tabs--path slds-p-around--small" role="application tablist">
+    <ul class="slds-tabs--path__nav" role="presentation">
+      <aura:iteration items="{!v.pathObjects}" var="step">
+        <li class="{!'slds-tabs--path__item slds-' + step.statusClass}" role="presentation">
+          <a class="slds-tabs--path__link" aria-selected="{!step.ariaSelected}" tabindex="{!step.tabIndex}" role="tab" aria-live="assertive"  title="{!step.value}" onclick="{!c.change}">
+            <lightning:icon iconName="utility:check" size="x-small" alternativeText="Stage Complete" class="slds-tabs--path__stage"/>
+            <span class="slds-tabs--path__title" title="{!step.value}">{!step.label}</span>
+          </a>
+        </li>
+      </aura:iteration>
+    </ul>
+	</div>
+
+	<c:LightningErrorHandler aura:id="leh"/>
+
+</aura:component>

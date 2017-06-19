@@ -1,0 +1,6 @@
+<design:component>
+    <design:attribute name="pathField" label="Path Stage Field" description="if, for example, you're doing a case, you can pick Status and those picklist options become the steps in the path" />
+
+    <design:attribute name="clickToChange" label="Click to change" description="if the user clicks a step, the component will attempt to change the status to that.  Make it false if you've got a lot of validation rules or process that needs to be followed" default="true" />
+
+</design:component>
