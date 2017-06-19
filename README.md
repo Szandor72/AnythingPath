@@ -34,7 +34,7 @@ Tongue-in-cheek [demo video](https://www.youtube.com/watch?v=Zoqll5THApU) that w
 
 * verify that it's actually a picklist field
 * deal with record types where only some picklist values are there
-* have the fields or "guidance for success" stuff that real sales path has
+* have the fields or "guidance for success" stuff that real sales path has (see below for GuidanceBox)
 * come with any guarantees from Salesforce or support from me.  Treat this as code you found laying beside the road.
 
 ===
