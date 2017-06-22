@@ -1,4 +1,4 @@
-<aura:component implements="flexipage:availableForAllPageTypes, force:hasRecordId,force:hasSObjectName" controller="Ora" access="global" extends="promiseErrorHandler">
+<aura:component implements="flexipage:availableForAllPageTypes, force:hasRecordId,force:hasSObjectName" controller="Ora" access="global" extends="c:promiseErrorHandler">
 
 	<!--design attributes, for the app/community builders-->
   <aura:attribute name="pathField" type="string" required="true" default="Status" access="global"/>
